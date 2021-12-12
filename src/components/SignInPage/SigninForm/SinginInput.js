@@ -1,11 +1,12 @@
 import React from "react";
 import { IoPersonCircleSharp } from "react-icons/io5";
 
-const SinginInput = ({ icon, value, placeholder }) => {
+const SinginInput = ({ icon, value, placeholder, onChange }) => {
   return (
     <div className="relative mx-auto md:mx-0">
       <input
         value={value}
+        onChange={onChange}
         placeholder={placeholder}
         className="appearance-none w-80 h-12 border-2 focus:border-sky-700 pl-12 transition-colors duration-300 pr-4 bg-transparent text-white font-bold outline-none border-gray-600 rounded-md"
       />
