@@ -2,7 +2,8 @@ import React from "react";
 import SinginInput from "./SinginInput";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
-import { signInWithGoogle } from "../../Firebase/Firebase";
+import { signInWithGoogle } from "../../Firebase/GoogleSignin";
+import { signinWithGithub } from "../../Firebase/GithubSignin";
 const SigninForm = () => {
   return (
     <div className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center">
@@ -20,8 +21,11 @@ const SigninForm = () => {
         >
           Gmail
         </button>
-        <button className="w-[48%] h-12 mx-auto md:mx-0 rounded-md text-white font-semibold bg-slate-700 active:bg-sky-900 hover:bg-sky-800 transition-colors duration-300">
-          Facebook
+        <button
+          onClick={() => signinWithGithub()}
+          className="w-[48%] h-12 mx-auto md:mx-0 rounded-md text-white font-semibold bg-slate-700 active:bg-gray-900 hover:bg-gray-800 transition-colors duration-300"
+        >
+          Github
         </button>
       </div>
       <p className="text-center mx-auto md:mx-0 text-white/50 w-80 text-sm">
