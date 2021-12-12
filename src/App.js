@@ -16,9 +16,6 @@ function App() {
 
   return (
     <div className="App relative md:overflow-hidden">
-      <p className="absolute text-white text-xl font-bold left-4 top-2">
-        {user ? `${user.displayName} is Sign in` : "User isnt Sign in"}
-      </p>
       <Signin />
     </div>
   );

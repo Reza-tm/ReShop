@@ -1,8 +1,8 @@
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./Firebase";
 
-export const signinWithEmailPass = (email, pass) => {
-  console.log(email, pass);
+export const signinWithEmailPass = (emailPass) => {
+  const { email, pass } = emailPass;
   createUserWithEmailAndPassword(auth, email, pass)
     .then((userCredential) => {
       console.log("ok", userCredential);

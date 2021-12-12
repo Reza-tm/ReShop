@@ -5,31 +5,50 @@ import { IoMdKey } from "react-icons/io";
 import { signInWithGoogle } from "../../Firebase/GoogleSignin";
 import { signinWithGithub } from "../../Firebase/GithubSignin";
 import { signinWithEmailPass } from "../../Firebase/EmailPassSignin";
+import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const SigninForm = () => {
-  const [email, setEmail] = useState("");
-  const [pass, setPass] = useState("");
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      pass: "",
+    },
+    validationSchema: Yup.object({
+      email: Yup.string().email("Please enter a valid email").required("Required"),
+      pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
+    }),
+    onSubmit: (values) => {
+      signinWithEmailPass(values);
+    },
+  });
 
   return (
-    <div className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center">
+    <form
+      onSubmit={formik.handleSubmit}
+      className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center"
+    >
       <h2 className="font-nunito text-white text-2xl font-bold">Create Your account</h2>
       <p className="font-nunito text-white/50">Created for practice</p>
       <SinginInput
-        value={email}
-        onChange={(i) => setEmail(i.target.value)}
-        placeholder="Username"
+        id="email"
+        value={formik.values.email}
+        placeholder="Email"
+        {...formik.getFieldProps("email")}
         icon={<IoPersonCircleSharp size={25} color="white" />}
+        error={formik.errors.email}
+        touch={formik.touched.email}
       />
       <SinginInput
-        value={pass}
-        onChange={(i) => setPass(i.target.value)}
-        placeholder="password"
+        value={formik.values.pass}
+        placeholder="Password"
         icon={<IoMdKey size={25} color="white" />}
+        {...formik.getFieldProps("pass")}
+        id="pass"
+        error={formik.errors.pass}
+        touch={formik.touched.pass}
       />
-      <button
-        onClick={() => signinWithEmailPass(email, pass)}
-        className="w-80 h-12 mx-auto md:mx-0 rounded-md text-white font-semibold active:bg-blue-900 bg-blue-700 hover:bg-blue-800 transition-colors duration-300"
-      >
+      <button className="w-80 h-12 mx-auto md:mx-0 rounded-md text-white font-semibold active:bg-blue-900 bg-blue-700 hover:bg-blue-800 transition-colors duration-300">
         Create my account
       </button>
       <div className="flex w-80 justify-between mx-auto md:mx-0">
@@ -49,7 +68,7 @@ const SigninForm = () => {
       <p className="text-center mx-auto md:mx-0 text-white/50 w-80 text-sm">
         Already have an account ? <span className="text-blue-700">Sign in</span>
       </p>
-    </div>
+    </form>
   );
 };
 
