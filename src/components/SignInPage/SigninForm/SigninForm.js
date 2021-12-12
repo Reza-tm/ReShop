@@ -3,7 +3,6 @@ import SinginInput from "./SinginInput";
 import { IoPersonCircleSharp } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
 import { signInWithGoogle } from "../../Firebase/Firebase";
-
 const SigninForm = () => {
   return (
     <div className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center">
@@ -16,7 +15,7 @@ const SigninForm = () => {
       </button>
       <div className="flex w-80 justify-between mx-auto md:mx-0">
         <button
-          onClick={signInWithGoogle}
+          onClick={() => signInWithGoogle()}
           className="w-[48%] h-12 mx-auto md:mx-0 rounded-md text-white font-semibold bg-slate-700 active:bg-red-900 hover:bg-red-800 transition-colors duration-300"
         >
           Gmail
