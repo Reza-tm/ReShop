@@ -26,7 +26,7 @@ const SigninForm = () => {
   return (
     <form
       onSubmit={formik.handleSubmit}
-      className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center"
+      className="rounded-2xl pb-20 z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center"
     >
       <h2 className="font-nunito text-white text-2xl font-bold">Create Your account</h2>
       <p className="font-nunito text-white/50">Created for practice</p>
