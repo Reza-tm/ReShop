@@ -3,7 +3,7 @@ import { IoPersonCircleSharp } from "react-icons/io5";
 
 const SinginInput = ({ icon, value, placeholder }) => {
   return (
-    <div className="relative">
+    <div className="relative mx-auto md:mx-0">
       <input
         value={value}
         placeholder={placeholder}

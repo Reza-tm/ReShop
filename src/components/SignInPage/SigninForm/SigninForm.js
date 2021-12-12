@@ -5,17 +5,23 @@ import { IoMdKey } from "react-icons/io";
 
 const SigninForm = () => {
   return (
-    <div className="h-96 w-[430px] rounded-2xl z-10 relative overflow-hidden flex flex-col justify-center">
+    <div className="rounded-2xl z-10 relative text-center md:text-left space-y-5 overflow-hidden flex flex-col justify-center">
       <h2 className="font-nunito text-white text-2xl font-bold">Create Your account</h2>
-      <p className="font-nunito text-white/50 py-5">Created for practice</p>
+      <p className="font-nunito text-white/50">Created for practice</p>
       <SinginInput placeholder="Username" icon={<IoPersonCircleSharp size={25} color="white" />} />
-      <br />
       <SinginInput placeholder="password" icon={<IoMdKey size={25} color="white" />} />
-      <br />
-      <button className="w-80 h-12 rounded-md text-white font-semibold bg-blue-700 hover:bg-blue-800 transition-colors duration-300">
+      <button className="w-80 h-12 mx-auto md:mx-0 rounded-md text-white font-semibold active:bg-blue-900 bg-blue-700 hover:bg-blue-800 transition-colors duration-300">
         Create my account
       </button>
-      <p className="text-center text-white/50 w-80 text-sm py-5">
+      <div className="flex w-80 justify-between mx-auto md:mx-0">
+        <button className="w-[48%] h-12 mx-auto md:mx-0 rounded-md text-white font-semibold bg-slate-700 active:bg-red-900 hover:bg-red-800 transition-colors duration-300">
+          Gmail
+        </button>
+        <button className="w-[48%] h-12 mx-auto md:mx-0 rounded-md text-white font-semibold bg-slate-700 active:bg-sky-900 hover:bg-sky-800 transition-colors duration-300">
+          Facebook
+        </button>
+      </div>
+      <p className="text-center mx-auto md:mx-0 text-white/50 w-80 text-sm">
         Already have an account ? <span className="text-blue-700">Sign in</span>
       </p>
     </div>
