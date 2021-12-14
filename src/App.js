@@ -9,12 +9,13 @@ function App() {
 
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
-      createUserProfileDocument(user);
+      const userDoc = await createUserProfileDocument(user);
+      setUser({ ...userDoc.data(), id: userDoc.id });
     });
   }, []);
 
   return (
-    <div className="App relative md:overflow-hidden">
+    <div>
       <Signin />
     </div>
   );

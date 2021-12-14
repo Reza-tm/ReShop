@@ -29,4 +29,5 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
       console.log(err);
     }
   }
+  return userDoc;
 };
