@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import firestore, { doc, getDocs, getFirestore, collection, addDoc, getDoc, setDoc } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAoJkKpyoGisGFLovz6nDPcYjb9bKQC56w",
@@ -12,3 +13,20 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
+
+const db = getFirestore();
+
+export const createUserProfileDocument = async (userAuth, additionalData) => {
+  if (!userAuth) return;
+  const user = doc(db, "users", userAuth.uid);
+  const userDoc = await getDoc(user);
+  if (!userDoc.exists()) {
+    const { displayName, email } = userAuth;
+    const createdAt = new Date();
+    try {
+      setDoc(user, { displayName, email, createdAt, ...additionalData });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+};

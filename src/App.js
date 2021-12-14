@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import Signin from "./pages/signin/Signin";
 import "./App.css";
-import { getAuth, onAuthStateChanged } from "firebase/auth";
-import { auth } from "./components/Firebase/Firebase";
+import { onAuthStateChanged } from "firebase/auth";
+import { auth, createUserProfileDocument } from "./components/Firebase/Firebase";
 
 function App() {
   const [user, setUser] = useState();
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUser(user);
-      console.log(user);
+    onAuthStateChanged(auth, async (user) => {
+      createUserProfileDocument(user);
     });
   }, []);
 
