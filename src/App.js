@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import Signin from "./pages/signin/Signin";
+import Signin from "./pages/signin/SigninAndSignup";
 import "./App.css";
-import { onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth, createUserProfileDocument } from "./components/Firebase/Firebase";
+import { onSnapshot } from "firebase/firestore";
 
 function App() {
   const [user, setUser] = useState();
@@ -10,12 +11,26 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       const userDoc = await createUserProfileDocument(user);
-      setUser({ ...userDoc.data(), id: userDoc.id });
+      if (userDoc) {
+        onSnapshot(userDoc, (doc) => {
+          setUser({ ...doc.data(), id: userDoc.id });
+        });
+      } else {
+        setUser(null);
+      }
     });
   }, []);
 
   return (
     <div>
+      {user ? (
+        <p onClick={() => signOut(auth)} className="text-white">
+          {user.id}
+        </p>
+      ) : (
+        <p>not sign in</p>
+      )}
+
       <Signin />
     </div>
   );
