@@ -4,10 +4,10 @@ import { IoMail } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
 import { signInWithGoogle } from "../Firebase/GoogleSignin";
 import { signinWithGithub } from "../Firebase/GithubSignin";
-import { signupWithEmailPass } from "../Firebase/EmailPassSignup";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
+import { signinWithEmailPass } from "../Firebase/EmailPassSignin";
 
 const SigninForm = ({ setter }) => {
   const formik = useFormik({
@@ -20,7 +20,7 @@ const SigninForm = ({ setter }) => {
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signupWithEmailPass(values);
+      signinWithEmailPass(values.email, values.pass);
     },
   });
 
@@ -54,7 +54,7 @@ const SigninForm = ({ setter }) => {
         whileTap={{ scale: 0.95 }}
         className="w-80 flex-shrink-0 h-12 mx-auto md:mx-0 rounded-md text-white font-semibold active:bg-blue-900 bg-blue-700 hover:bg-blue-800 transition-colors duration-300"
       >
-        Create my account
+        Sign in
       </motion.button>
       <div className="flex w-80 justify-between mx-auto md:mx-0">
         <motion.button

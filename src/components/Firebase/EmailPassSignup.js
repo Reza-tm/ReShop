@@ -7,6 +7,6 @@ export const signupWithEmailPass = async (inputValue) => {
     const { user } = await createUserWithEmailAndPassword(auth, email, pass);
     createUserProfileDocument(user, { displayName: name });
   } catch (err) {
-    console.log(err);
+    return err.message;
   }
 };

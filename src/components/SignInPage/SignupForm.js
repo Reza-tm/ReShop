@@ -22,7 +22,7 @@ const SignupForm = ({ setter }) => {
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signupWithEmailPass(values);
+      signupWithEmailPass(values).then((err) => console.log("err", err));
     },
   });
 
