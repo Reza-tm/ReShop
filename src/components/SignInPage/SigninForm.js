@@ -4,7 +4,7 @@ import { IoMail } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
 import { signInWithGoogle } from "../Firebase/GoogleSignin";
 import { signinWithGithub } from "../Firebase/GithubSignin";
-import { signinWithEmailPass } from "../Firebase/EmailPassSignin";
+import { signupWithEmailPass } from "../Firebase/EmailPassSignup";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { AnimatePresence, motion } from "framer-motion";
@@ -20,7 +20,7 @@ const SigninForm = ({ setter }) => {
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signinWithEmailPass(values);
+      signupWithEmailPass(values);
     },
   });
 

@@ -4,10 +4,10 @@ import { IoMail, IoPersonCircleSharp } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
 import { signInWithGoogle } from "../Firebase/GoogleSignin";
 import { signinWithGithub } from "../Firebase/GithubSignin";
-import { signinWithEmailPass } from "../Firebase/EmailPassSignin";
+import { signupWithEmailPass } from "../Firebase/EmailPassSignup";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const SignupForm = ({ setter }) => {
   const formik = useFormik({
@@ -17,12 +17,12 @@ const SignupForm = ({ setter }) => {
       pass: "",
     },
     validationSchema: Yup.object({
-      name: Yup.string().required("Required"),
+      name: Yup.string().min(3, "your name should be more than 3").required("Required"),
       email: Yup.string().email("Please enter a valid email").required("Required"),
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signinWithEmailPass(values);
+      signupWithEmailPass(values);
     },
   });
 
