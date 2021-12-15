@@ -8,6 +8,7 @@ import { signupWithEmailPass } from "../Firebase/EmailPassSignup";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
+import toast, { Toaster } from "react-hot-toast";
 
 const SignupForm = ({ setter }) => {
   const formik = useFormik({
@@ -22,7 +23,18 @@ const SignupForm = ({ setter }) => {
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signupWithEmailPass(values).then((err) => console.log("err", err));
+      signupWithEmailPass(values)
+        .then((res) => toast.success("Welcome to re shop"))
+        .catch((error) => {
+          console.log(error);
+          toast.error(
+            error == "Firebase: Error (auth/email-already-in-use)."
+              ? "you are already have account"
+              : error == "Firebase: Error (auth/invalid-email)."
+              ? "Invalid type of email"
+              : ""
+          );
+        });
     },
   });
 
@@ -31,6 +43,9 @@ const SignupForm = ({ setter }) => {
       onSubmit={formik.handleSubmit}
       className="rounded-2xl duration-300 z-10 relative text-center md:text-left space-y-5 flex flex-col justify-center"
     >
+      <div>
+        <Toaster />
+      </div>
       <h2 className="font-nunito text-white text-2xl font-bold">Create Your account</h2>
       <p className="font-nunito text-white/50">Created for practice</p>
       <SinginInput
