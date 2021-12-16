@@ -25,16 +25,7 @@ const SignupForm = ({ setter }) => {
     onSubmit: (values) => {
       signupWithEmailPass(values)
         .then((res) => toast.success("Welcome to re shop"))
-        .catch((error) => {
-          console.log(error);
-          toast.error(
-            error == "Firebase: Error (auth/email-already-in-use)."
-              ? "you are already have account"
-              : error == "Firebase: Error (auth/invalid-email)."
-              ? "Invalid type of email"
-              : ""
-          );
-        });
+        .catch((error) => toast.error(error));
     },
   });
 

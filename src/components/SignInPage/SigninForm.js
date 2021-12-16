@@ -8,6 +8,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
 import { signinWithEmailPass } from "../Firebase/EmailPassSignin";
+import toast, { Toaster } from "react-hot-toast";
 
 const SigninForm = ({ setter }) => {
   const formik = useFormik({
@@ -20,7 +21,9 @@ const SigninForm = ({ setter }) => {
       pass: Yup.string().min(6, "Must be 6 characters or more").required("Required"),
     }),
     onSubmit: (values) => {
-      signinWithEmailPass(values.email, values.pass);
+      signinWithEmailPass(values.email, values.pass)
+        .then((res) => toast.success("welcome to Re shop"))
+        .catch((err) => toast.error(err));
     },
   });
 
@@ -29,6 +32,7 @@ const SigninForm = ({ setter }) => {
       onSubmit={formik.handleSubmit}
       className="rounded-2xl duration-300 z-10 relative text-center md:text-left space-y-5 flex flex-col justify-center"
     >
+      <Toaster position="top-center" />
       <h2 className="font-nunito text-white text-2xl font-bold">Sign in and enjoy app</h2>
       <p className="font-nunito text-white/50">Welcome Back !</p>
       <SinginInput
@@ -51,6 +55,7 @@ const SigninForm = ({ setter }) => {
       />
 
       <motion.button
+        type="submit"
         whileTap={{ scale: 0.95 }}
         className="w-80 flex-shrink-0 h-12 mx-auto md:mx-0 rounded-md text-white font-semibold active:bg-blue-900 bg-blue-700 hover:bg-blue-800 transition-colors duration-300"
       >
