@@ -2,23 +2,26 @@ import { useEffect, useState } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, createUserProfileDocument } from "./components/Firebase/Firebase";
+import { auth, createUserProfileDocument } from "./services/Firebase/Firebase";
 import { onSnapshot } from "firebase/firestore";
 import SigninAndSignup from "./pages/signinPage/SigninAndSignup";
 import HomePage from "./pages/homePage/HomePage";
+import { useDispatch, useSelector } from "react-redux";
+import { userVerfication } from "./services/Redux/user/userActions";
 
 function App() {
-  const [user, setUser] = useState();
-
+  const user = useSelector((state) => state.user.currentUser);
+  console.log(user);
+  const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       const userDoc = await createUserProfileDocument(user);
       if (userDoc) {
         onSnapshot(userDoc, (doc) => {
-          setUser({ ...doc.data(), id: userDoc.id });
+          dispatch(userVerfication({ ...doc.data(), id: userDoc.id }));
         });
       } else {
-        setUser(null);
+        dispatch(userVerfication(null));
       }
     });
   }, []);

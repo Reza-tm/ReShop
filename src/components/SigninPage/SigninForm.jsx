@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import SinginInput from "./SinginInput";
 import { IoMail } from "react-icons/io5";
 import { IoMdKey } from "react-icons/io";
-import { signInWithGoogle } from "../Firebase/GoogleSignin";
-import { signinWithGithub } from "../Firebase/GithubSignin";
+import { signInWithGoogle } from "../../services/Firebase/GoogleSignin";
+import { signinWithGithub } from "../../services/Firebase/GithubSignin";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { motion } from "framer-motion";
-import { signinWithEmailPass } from "../Firebase/EmailPassSignin";
+import { signinWithEmailPass } from "../../services/Firebase/EmailPassSignin";
 import toast, { Toaster } from "react-hot-toast";
 
 const SigninForm = ({ setter }) => {
