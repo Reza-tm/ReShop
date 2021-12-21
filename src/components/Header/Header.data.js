@@ -1,13 +1,23 @@
+import { BiSupport, BiHomeSmile, BiShoppingBag } from "react-icons/bi";
+import { VscSignOut } from "react-icons/vsc";
+
 export default () => [
   {
-    title: "shop",
+    icon: <BiHomeSmile size="27px" />,
     to: "/",
+    type: "link",
   },
   {
-    title: "contact",
+    icon: <BiSupport size="27px" />,
     to: "/contact",
+    type: "link",
   },
   {
-    title: "sign out",
+    icon: <BiShoppingBag size="27px" />,
+    type: "modal",
+  },
+  {
+    icon: <VscSignOut size="27px" />,
+    type: "action",
   },
 ];

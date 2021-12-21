@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, createUserProfileDocument } from "./services/Firebase/Firebase";
 import { onSnapshot } from "firebase/firestore";
 import SigninAndSignup from "./pages/signinPage/SigninAndSignup";
-import HomePage from "./pages/homePage/HomePage";
+import HomePage from "./pages/mainApp/MainApp";
 import { useDispatch, useSelector } from "react-redux";
 import { userVerfication } from "./services/Redux/user/userActions";
 

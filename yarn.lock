@@ -1004,10 +1004,10 @@
     "core-js-pure" "^3.19.0"
     "regenerator-runtime" "^0.13.4"
 
-"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.3", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
-  "integrity" "sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ=="
-  "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.16.3.tgz"
-  "version" "7.16.3"
+"@babel/runtime@^7.10.2", "@babel/runtime@^7.11.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.15.4", "@babel/runtime@^7.16.3", "@babel/runtime@^7.16.5", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.9.2":
+  "integrity" "sha512-TXWihFIS3Pyv5hzR7j6ihmeLkZfrXGxAr5UfSl8CHf+6q/wpiYDkUau0czckpYG8QmnCIuPpdLtuA9VmuGGyMA=="
+  "resolved" "https://registry.npmjs.org/@babel/runtime/-/runtime-7.16.5.tgz"
+  "version" "7.16.5"
   dependencies:
     "regenerator-runtime" "^0.13.4"
 
@@ -1921,6 +1921,15 @@
     "@svgr/plugin-svgo" "^5.5.0"
     "loader-utils" "^2.0.0"
 
+"@tanem/svg-injector@^10.1.12":
+  "integrity" "sha512-FjLvecZmTW/zfEciQUUGHhzPNc2nvXFtrZFbdc+aA3Xep3P3vC6BQZ2GymL+0c87MYUrkQ1VOXPNKmU9gonWiw=="
+  "resolved" "https://registry.npmjs.org/@tanem/svg-injector/-/svg-injector-10.1.13.tgz"
+  "version" "10.1.13"
+  dependencies:
+    "@babel/runtime" "^7.16.5"
+    "content-type" "^1.0.4"
+    "tslib" "^2.3.1"
+
 "@testing-library/dom@^8.0.0", "@testing-library/dom@>=7.21.4":
   "integrity" "sha512-3KQDyx9r0RKYailW2MiYrSSKEfH0GTkI51UGEvJenvcoDoeRYs0PZpi2SXqtnMClQvCqdtTTpOfFETDTVADpAg=="
   "resolved" "https://registry.npmjs.org/@testing-library/dom/-/dom-8.11.1.tgz"
@@ -2145,7 +2154,7 @@
   "resolved" "https://registry.npmjs.org/@types/prettier/-/prettier-2.4.2.tgz"
   "version" "2.4.2"
 
-"@types/prop-types@*":
+"@types/prop-types@*", "@types/prop-types@^15.7.4":
   "integrity" "sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ=="
   "resolved" "https://registry.npmjs.org/@types/prop-types/-/prop-types-15.7.4.tgz"
   "version" "15.7.4"
@@ -3486,7 +3495,7 @@
   dependencies:
     "safe-buffer" "5.1.2"
 
-"content-type@~1.0.4":
+"content-type@^1.0.4", "content-type@~1.0.4":
   "integrity" "sha512-hIP3EEPs8tB9AT1L+NUqtwOAps4mk2Zob89MWXMHjHWg9milF/j4osnnQLXBCBFBk/tvIG/tUc9mOUJiPBhPXA=="
   "resolved" "https://registry.npmjs.org/content-type/-/content-type-1.0.4.tgz"
   "version" "1.0.4"
@@ -4949,10 +4958,10 @@
   "resolved" "https://registry.npmjs.org/fraction.js/-/fraction.js-4.1.2.tgz"
   "version" "4.1.2"
 
-"framer-motion@^5.5.1":
-  "integrity" "sha512-kPfQpMO4BH+ouIORDMGNt3o+vEgNnIKHyKIgFG4zalTFJaNx9YF2hM2cSdlNdZ6OpiBEkSyKg5DkpFkhmZpRDQ=="
-  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-5.5.1.tgz"
-  "version" "5.5.1"
+"framer-motion@^5.5.5":
+  "integrity" "sha512-+LPAF5ddo02qKh+MK4h1ChwqUFvrLkK1NDWwrHy+MuCVmQDGgiFNHvwqOSklTDGkEtbio3dCOEDy23+ZyNAa9g=="
+  "resolved" "https://registry.npmjs.org/framer-motion/-/framer-motion-5.5.5.tgz"
+  "version" "5.5.5"
   dependencies:
     "framesync" "6.0.1"
     "hey-listen" "^1.0.8"
@@ -8285,7 +8294,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@*", "react-dom@^17.0.2", "react-dom@>=16", "react-dom@>=16.13", "react-dom@>=16.8", "react-dom@>=16.8 || ^17.0.0":
+"react-dom@*", "react-dom@^15.5.4 || ^16.0.0 || ^17.0.0", "react-dom@^17.0.2", "react-dom@>=16", "react-dom@>=16.13", "react-dom@>=16.8", "react-dom@>=16.8 || ^17.0.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -8422,6 +8431,16 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
+"react-svg@^14.1.5":
+  "integrity" "sha512-NZate6rl+4RZkxH2Hchfa/PN50dyQhQVi5kBF8dyQkGI7P48cN+pdAwa1XotkucLdkQ9tYPcrywgZbBf6LKpTg=="
+  "resolved" "https://registry.npmjs.org/react-svg/-/react-svg-14.1.5.tgz"
+  "version" "14.1.5"
+  dependencies:
+    "@babel/runtime" "^7.16.5"
+    "@tanem/svg-injector" "^10.1.12"
+    "@types/prop-types" "^15.7.4"
+    "prop-types" "^15.7.2"
+
 "react-use-measure@^2.1.1":
   "integrity" "sha512-nocZhN26cproIiIduswYpV5y5lQpSQS1y/4KuvUCjSKmw7ZWIS/+g3aFnX3WdBkyuGUtTLif3UTqnLLhbDoQig=="
   "resolved" "https://registry.npmjs.org/react-use-measure/-/react-use-measure-2.1.1.tgz"
@@ -8429,7 +8448,7 @@
   dependencies:
     "debounce" "^1.2.1"
 
-"react@*", "react@^16.8.3 || ^17", "react@^17.0.2", "react@>= 16", "react@>=16", "react@>=16.13", "react@>=16.8", "react@>=16.8 || ^17.0.0", "react@>=16.8.0", "react@17.0.2":
+"react@*", "react@^15.5.4 || ^16.0.0 || ^17.0.0", "react@^16.8.3 || ^17", "react@^17.0.2", "react@>= 16", "react@>=16", "react@>=16.13", "react@>=16.8", "react@>=16.8 || ^17.0.0", "react@>=16.8.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"
@@ -9781,7 +9800,7 @@
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-1.14.1.tgz"
   "version" "1.14.1"
 
-"tslib@^2.0.3", "tslib@^2.1.0":
+"tslib@^2.0.3", "tslib@^2.1.0", "tslib@^2.3.1":
   "integrity" "sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw=="
   "resolved" "https://registry.npmjs.org/tslib/-/tslib-2.3.1.tgz"
   "version" "2.3.1"
