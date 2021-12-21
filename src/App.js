@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
-import Signin from "./pages/signin/SigninAndSignup";
+import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth, createUserProfileDocument } from "./components/Firebase/Firebase";
 import { onSnapshot } from "firebase/firestore";
+import SigninAndSignup from "./pages/signinPage/SigninAndSignup";
+import HomePage from "./pages/homePage/HomePage";
 
 function App() {
   const [user, setUser] = useState();
@@ -22,17 +24,18 @@ function App() {
   }, []);
 
   return (
-    <div>
+    <>
       {user ? (
-        <p onClick={() => signOut(auth)} className="text-white">
-          {user.id}
-        </p>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+        </Routes>
       ) : (
-        <p>not sign in</p>
+        <Routes>
+          <Route path="/" element={<SigninAndSignup />} />
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       )}
-
-      <Signin />
-    </div>
+    </>
   );
 }
 

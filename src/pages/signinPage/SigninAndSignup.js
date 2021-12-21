@@ -4,7 +4,7 @@ import SigninImage from "../../assets/images/signin-image.png";
 import { AnimatePresence, motion } from "framer-motion";
 import SignupForm from "../../components/SigninPage/SignupForm";
 
-const Signin = () => {
+const SigninAndSignup = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [isSignIn, setIsSignIn] = useState(false);
 
@@ -35,4 +35,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default SigninAndSignup;
