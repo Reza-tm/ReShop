@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 import "./App.css";
 import { onAuthStateChanged } from "firebase/auth";
@@ -8,6 +8,8 @@ import SigninAndSignup from "./pages/signinPage/SigninAndSignup";
 import HomePage from "./pages/mainApp/MainApp";
 import { useDispatch, useSelector } from "react-redux";
 import { userVerfication } from "./services/Redux/user/userActions";
+import CategoryPage from "./pages/categoryPage/CategoryPage";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -29,9 +31,13 @@ function App() {
   return (
     <div className="xl:h-screen max-h-full">
       {user ? (
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-        </Routes>
+        <Layout>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path=":id" element={<CategoryPage />}></Route>
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </Layout>
       ) : (
         <Routes>
           <Route path="/" element={<SigninAndSignup />} />

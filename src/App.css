@@ -15,3 +15,10 @@
   top: 50%;
   transform: translate(-50%, -50%);
 }
+
+.overflow-line {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
