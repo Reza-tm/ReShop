@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import SigninForm from "../../components/SigninPage/SigninForm";
+import SigninForm from "../../components/signinPageComponents/SigninForm";
 import SigninImage from "../../assets/images/signin-image.png";
 import { AnimatePresence, motion } from "framer-motion";
-import SignupForm from "../../components/SigninPage/SignupForm";
+import SignupForm from "../../components/signinPageComponents/SignupForm";
 
 const SigninAndSignup = () => {
   const [isSignUp, setIsSignUp] = useState(true);
