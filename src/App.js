@@ -27,7 +27,7 @@ function App() {
   }, []);
 
   return (
-    <>
+    <div className="xl:h-screen max-h-full">
       {user ? (
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -38,7 +38,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       )}
-    </>
+    </div>
   );
 }
 

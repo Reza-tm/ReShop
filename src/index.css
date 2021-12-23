@@ -3,8 +3,7 @@
 @tailwind utilities;
 body {
   margin: 0;
-  background: rgb(4, 15, 24);
-  background: linear-gradient(32deg, rgba(4, 15, 24, 1) 24%, rgba(34, 68, 67, 1) 170%);
+  background: #0b1c22;
   font-family: nunito, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
     "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
