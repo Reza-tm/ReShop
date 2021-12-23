@@ -1,7 +1,7 @@
 import { USER_VERFICATION } from "./userTypes";
 
 const initialState = {
-  currentUser: null,
+  currentUser: 1,
 };
 
 export const userReducer = (state = initialState, action) => {
