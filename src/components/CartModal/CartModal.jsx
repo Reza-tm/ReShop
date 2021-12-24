@@ -10,8 +10,8 @@ const CartModal = ({ visibility }) => {
       onAnimationStart={() => setDisplay(true)}
       animate={{ opacity: visibility ? 1 : 0 }}
       initial={{ opacity: 0 }}
-      style={{ display: display ? "block" : "none" }}
-      className="absolute left-24 centerY rounded-r-lg overflow-hidden rounded-l-sm w-96 h-96 cursor-default bg-gray-200/60"
+      style={{ display: display ? "block" : "none", zIndex: "999 !important" }}
+      className=" left-24 z-50 fixed centerY rounded-r-lg overflow-hidden rounded-l-sm w-96 h-96 cursor-default bg-gray-200"
     >
       <div className="w-full h-5/6 py-3 flex flex-col items-center  overflow-y-auto">
         <CartItem />

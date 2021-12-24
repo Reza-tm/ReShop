@@ -38,7 +38,7 @@ const Header = () => {
           >
             <BiShoppingBag size="27px" color={cartModalVisibility ? "#fff" : "rgb(255 255 255 / 0.5)"} /> <CartBadge />
           </motion.div>
-          <CartModal visibility={cartModalVisibility}></CartModal>
+          <CartModal visibility={cartModalVisibility} />
         </div>
         <motion.div whileHover={{ scale: 1.2 }} onClick={() => signOut(auth)} className="cursor-pointer">
           <VscSignOut size="27px" color="rgb(255 255 255 / 0.5)" />

@@ -27,12 +27,19 @@ const CategoryPage = () => {
       </h1>
       <div
         style={{ scrollSnapType: "x mandatory" }}
-        className="h-[520px] overflow-scroll space-x-4 w-full border-4 flex items-center rounded-lg p-5 border-teal-900/20"
+        className="h-[520px] overflow-scroll space-x-6 w-full border-4 flex items-center rounded-lg p-5 border-teal-900/20"
       >
         <AnimatePresence>
           {products.length !== 0 &&
             products.map(({ imgUrl, name, price }, index) => (
-              <ProductsCard key={index} imgUrl={imgUrl} name={name} price={price} />
+              <motion.div
+                key={index}
+                initial={{ height: "85%" }}
+                whileHover={{ height: "100%" }}
+                transition={{ type: "spring", stiffness: "300" }}
+              >
+                <ProductsCard imgUrl={imgUrl} name={name} price={price} />
+              </motion.div>
             ))}
         </AnimatePresence>
         <AnimatePresence>

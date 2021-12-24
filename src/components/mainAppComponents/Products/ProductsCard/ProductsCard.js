@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import Tilt from "react-tilt";
 
 const ProductsCard = ({ name, price, imgUrl }) => {
   return (
@@ -8,12 +9,14 @@ const ProductsCard = ({ name, price, imgUrl }) => {
       animate={{ opacity: 1, display: "flex" }}
       exit={{ opacity: 0 }}
       transition={{ delay: 0.5 }}
-      style={{ scrollSnapAlign: "center" }}
-      className="h-5/6 flex-shrink-0  flex-col justify-between w-72 bg-red-50/10 rounded-lg p-2"
+      style={{ scrollSnapAlign: "center", zIndex: -1 }}
+      className="h-full flex-shrink-0  flex-col justify-between w-72 bg-red-50/10 rounded-lg p-2"
     >
-      <div className="w-full h-1/2 rounded-lg border-2 overflow-hidden">
-        <img src={imgUrl} className="w-full h-full  object-cover" />
-      </div>
+      <Tilt className="Tilt" options={{ max: 20 }} style={{ height: "50%", width: "100%" }}>
+        <div className="w-full h-full rounded-lg border-2 overflow-hidden">
+          <img src={imgUrl} className="w-full h-full  object-cover" />
+        </div>
+      </Tilt>
       <div>
         <h2 className="text-white font-semibold capitalize text-xl overflow-ellipsis whitespace-nowrap my-4">{name}</h2>
         <p className="text-white/80 overflow-line text-sm overflow-ellipsis mb-4 w-full whitespace-pre-line">
@@ -24,7 +27,7 @@ const ProductsCard = ({ name, price, imgUrl }) => {
         </p>
       </div>
       <div className="flex w-full space-x-2">
-        <button className="text-white font-bold px-3 py-2 w-2/3 bg-emerald-300/30 rounded-md">Add To Cart</button>
+        <motion.button className="text-white font-bold px-3 py-2 w-2/3 bg-emerald-300/30 rounded-md">Add To Cart</motion.button>
         <div className="px-3 py-2 w-1/3 font-bold text-center rounded-lg bg-white/80">{price} $</div>
       </div>
     </motion.div>
