@@ -1,10 +1,15 @@
+import { motion } from "framer-motion";
 import React from "react";
 
 const ProductsCard = ({ name, price, imgUrl }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, display: "none" }}
+      animate={{ opacity: 1, display: "flex" }}
+      exit={{ opacity: 0 }}
+      transition={{ delay: 0.5 }}
       style={{ scrollSnapAlign: "center" }}
-      className="h-5/6 flex-shrink-0 flex flex-col justify-between w-72 bg-red-50/10 rounded-lg p-2"
+      className="h-5/6 flex-shrink-0  flex-col justify-between w-72 bg-red-50/10 rounded-lg p-2"
     >
       <div className="w-full h-1/2 rounded-lg border-2 overflow-hidden">
         <img src={imgUrl} className="w-full h-full  object-cover" />
@@ -22,7 +27,7 @@ const ProductsCard = ({ name, price, imgUrl }) => {
         <button className="text-white font-bold px-3 py-2 w-2/3 bg-emerald-300/30 rounded-md">Add To Cart</button>
         <div className="px-3 py-2 w-1/3 font-bold text-center rounded-lg bg-white/80">{price} $</div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

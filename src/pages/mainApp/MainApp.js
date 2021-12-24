@@ -1,3 +1,4 @@
+import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "../../components/Header/Header";
@@ -15,28 +16,45 @@ const MainApp = () => {
   console.log(categories);
   return (
     <>
-      {categories ? (
-        <div className="flex flex-wrap justify-center">
-          {categories
-            .filter((item) => !item.size)
-            .map(({ title, imgUrl }) => (
-              <CategoryItem image={imgUrl} title={title} />
-            ))}
-          {categories
-            .filter((item) => item.size)
-            .map(({ title, imgUrl }) => (
-              <CategoryItem image={imgUrl} title={title} lg />
-            ))}
-        </div>
-      ) : (
-        <div className="flex flex-wrap">
-          <CategorySkeleton />
-          <CategorySkeleton />
-          <CategorySkeleton />
-          <CategorySkeleton lg />
-          <CategorySkeleton lg />
-        </div>
-      )}
+      <AnimatePresence>
+        {categories && (
+          <motion.div
+            initial={{ opacity: 0, display: "none" }}
+            animate={{ opacity: 1, display: "flex" }}
+            exit={{ opacity: 0 }}
+            transition={{ delay: 0.5 }}
+            className="flex flex-wrap justify-center"
+          >
+            {categories
+              .filter((item) => !item.size)
+              .map(({ title, imgUrl }) => (
+                <CategoryItem image={imgUrl} title={title} />
+              ))}
+            {categories
+              .filter((item) => item.size)
+              .map(({ title, imgUrl }) => (
+                <CategoryItem image={imgUrl} title={title} lg />
+              ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
+      <AnimatePresence>
+        {!categories && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            transition={{ delay: 0.2 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="flex flex-wrap"
+          >
+            <CategorySkeleton />
+            <CategorySkeleton />
+            <CategorySkeleton />
+            <CategorySkeleton lg />
+            <CategorySkeleton lg />
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };

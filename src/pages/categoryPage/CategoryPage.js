@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ProductsCard from "../../components/mainAppComponents/Products/ProductsCard/ProductsCard";
 import ProductsSkeleton from "../../components/mainAppComponents/Products/ProductsSkeleton";
+import { motion, AnimatePresence } from "framer-motion";
 import { getProductByCategory } from "../../services/Firebase/FirebaseProducts/getProductByCategory";
 
 const CategoryPage = () => {
   const [products, setProducts] = useState([]);
-  const arrayOfProducts = [];
   const emoji = {
     sneakers: "👟",
     hats: "👒",
@@ -29,15 +29,21 @@ const CategoryPage = () => {
         style={{ scrollSnapType: "x mandatory" }}
         className="h-[520px] overflow-scroll space-x-4 w-full border-4 flex items-center rounded-lg p-5 border-teal-900/20"
       >
-        {products.length !== 0 ? (
-          products.map(({ imgUrl, name, price }, index) => <ProductsCard key={index} imgUrl={imgUrl} name={name} price={price} />)
-        ) : (
-          <>
-            <ProductsSkeleton />
-            <ProductsSkeleton />
-            <ProductsSkeleton />
-          </>
-        )}
+        <AnimatePresence>
+          {products.length !== 0 &&
+            products.map(({ imgUrl, name, price }, index) => (
+              <ProductsCard key={index} imgUrl={imgUrl} name={name} price={price} />
+            ))}
+        </AnimatePresence>
+        <AnimatePresence>
+          {products.length == 0 && (
+            <>
+              <ProductsSkeleton />
+              <ProductsSkeleton />
+              <ProductsSkeleton />
+            </>
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );
