@@ -13,7 +13,6 @@ const MainApp = () => {
       setCategories(res);
     });
   }, []);
-  console.log(categories);
   return (
     <>
       <AnimatePresence>

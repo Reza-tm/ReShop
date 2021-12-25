@@ -7,23 +7,22 @@ import { onSnapshot } from "firebase/firestore";
 import SigninAndSignup from "./pages/signinPage/SigninAndSignup";
 import HomePage from "./pages/mainApp/MainApp";
 import { useDispatch, useSelector } from "react-redux";
-import { userVerfication } from "./services/Redux/user/userActions";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
 import Layout from "./components/Layout/Layout";
+import { userVerification } from "./services/Redux/user/userSlice";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
-  console.log(user);
   const dispatch = useDispatch();
   useEffect(() => {
     onAuthStateChanged(auth, async (user) => {
       const userDoc = await createUserProfileDocument(user);
       if (userDoc) {
         onSnapshot(userDoc, (doc) => {
-          dispatch(userVerfication({ ...doc.data(), id: userDoc.id }));
+          dispatch(userVerification({ ...doc.data(), id: userDoc.id }));
         });
       } else {
-        dispatch(userVerfication(null));
+        dispatch(userVerification(null));
       }
     });
   }, []);
