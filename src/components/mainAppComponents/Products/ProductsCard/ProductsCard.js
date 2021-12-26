@@ -1,8 +1,21 @@
 import { motion } from "framer-motion";
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Tilt from "react-tilt";
+import { addItem } from "../../../../services/Redux/cart/cartSlice";
 
-const ProductsCard = ({ name, price, imgUrl }) => {
+const ProductsCard = ({ item }) => {
+  const [isInCart, setIsInCart] = useState(false);
+  const cartItems = useSelector((state) => state.cart.cartItems);
+  useEffect(() => {
+    cartItems.map((items) => {
+      if (items.id == item.id) {
+        setIsInCart(true);
+      }
+    });
+  }, []);
+  const { name, price, imgUrl } = item;
+  const dispatch = useDispatch();
   return (
     <motion.div
       initial={{ opacity: 0, display: "none" }}
@@ -27,7 +40,22 @@ const ProductsCard = ({ name, price, imgUrl }) => {
         </p>
       </div>
       <div className="flex w-full space-x-2">
-        <motion.button className="text-white font-bold px-3 py-2 w-2/3 bg-emerald-300/30 rounded-md">Add To Cart</motion.button>
+        <motion.button
+          transition={{ type: "tween", duration: 0.4 }}
+          whileHover={{
+            x: [0, 2, -2, 0],
+          }}
+          disabled={isInCart ? true : false}
+          className={`text-white font-bold px-3 py-2 w-2/3 ${isInCart ? "bg-emerald-300/5" : "bg-emerald-300/30"} rounded-md`}
+          onClick={() => {
+            if (!isInCart) {
+              setIsInCart(true);
+              dispatch(addItem({ ...item, quantity: 1 }));
+            }
+          }}
+        >
+          {isInCart ? "In cart" : "Add To Cart"}
+        </motion.button>
         <div className="px-3 py-2 w-1/3 font-bold text-center rounded-lg bg-white/80">{price} $</div>
       </div>
     </motion.div>

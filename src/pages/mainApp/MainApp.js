@@ -26,13 +26,13 @@ const MainApp = () => {
           >
             {categories
               .filter((item) => !item.size)
-              .map(({ title, imgUrl }) => (
-                <CategoryItem image={imgUrl} title={title} />
+              .map(({ title, imgUrl }, index) => (
+                <CategoryItem key={index} image={imgUrl} title={title} />
               ))}
             {categories
               .filter((item) => item.size)
-              .map(({ title, imgUrl }) => (
-                <CategoryItem image={imgUrl} title={title} lg />
+              .map(({ title, imgUrl }, index) => (
+                <CategoryItem key={index} image={imgUrl} title={title} lg />
               ))}
           </motion.div>
         )}

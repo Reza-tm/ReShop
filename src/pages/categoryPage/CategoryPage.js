@@ -31,14 +31,14 @@ const CategoryPage = () => {
       >
         <AnimatePresence>
           {products.length !== 0 &&
-            products.map(({ imgUrl, name, price }, index) => (
+            products.map((item) => (
               <motion.div
-                key={index}
+                key={item.id}
                 initial={{ height: "85%" }}
                 whileHover={{ height: "100%" }}
                 transition={{ type: "spring", stiffness: "300" }}
               >
-                <ProductsCard imgUrl={imgUrl} name={name} price={price} />
+                <ProductsCard item={item} />
               </motion.div>
             ))}
         </AnimatePresence>
