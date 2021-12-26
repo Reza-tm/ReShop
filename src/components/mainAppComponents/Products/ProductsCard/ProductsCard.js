@@ -8,12 +8,9 @@ const ProductsCard = ({ item }) => {
   const [isInCart, setIsInCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   useEffect(() => {
-    cartItems.map((items) => {
-      if (items.id == item.id) {
-        setIsInCart(true);
-      }
-    });
-  }, []);
+    const finded = cartItems.find((cartItem) => cartItem.id == item.id);
+    finded ? setIsInCart(true) : setIsInCart(false);
+  }, [cartItems]);
   const { name, price, imgUrl } = item;
   const dispatch = useDispatch();
   return (
@@ -50,7 +47,7 @@ const ProductsCard = ({ item }) => {
           onClick={() => {
             if (!isInCart) {
               setIsInCart(true);
-              dispatch(addItem({ ...item, quantity: 1 }));
+              dispatch(addItem({ ...item, quantity: 1, isInCart: true }));
             }
           }}
         >
