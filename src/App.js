@@ -11,6 +11,7 @@ import CategoryPage from "./pages/categoryPage/CategoryPage";
 import Layout from "./components/Layout/Layout";
 import { userVerification } from "./services/Redux/user/userSlice";
 import ReactLoading from "react-loading";
+import CheckoutPage from "./pages/checkoutPage/CheckoutPage";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -34,7 +35,8 @@ function App() {
         <Layout>
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path=":id" element={<CategoryPage />}></Route>
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path=":id" element={<CategoryPage />} />
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Layout>

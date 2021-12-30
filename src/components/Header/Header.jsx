@@ -7,7 +7,8 @@ import { RiVipCrownLine } from "react-icons/ri";
 import CartModal from "../CartModal/CartModal";
 import CartBadge from "../CartBadge/CartBadge";
 import { motion } from "framer-motion";
-import { BiSupport, BiHomeSmile, BiShoppingBag } from "react-icons/bi";
+import { BiHomeSmile, BiShoppingBag } from "react-icons/bi";
+import { FiShoppingCart } from "react-icons/fi";
 import { VscSignOut } from "react-icons/vsc";
 
 const Header = () => {
@@ -26,8 +27,8 @@ const Header = () => {
           </NavLink>
         </motion.div>
         <motion.div whileHover={{ scale: 1.2 }}>
-          <NavLink className={(nav) => (nav.isActive ? "text-white" : "text-white/50")} to="/contact">
-            <BiSupport size="27px" />
+          <NavLink className={(nav) => (nav.isActive ? "text-white" : "text-white/50")} to="/checkout">
+            <FiShoppingCart size="25px" />
           </NavLink>
         </motion.div>
         <div>
