@@ -10,6 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import CategoryPage from "./pages/categoryPage/CategoryPage";
 import Layout from "./components/Layout/Layout";
 import { userVerification } from "./services/Redux/user/userSlice";
+import ReactLoading from "react-loading";
 
 function App() {
   const user = useSelector((state) => state.user.currentUser);
@@ -22,13 +23,13 @@ function App() {
           dispatch(userVerification({ ...doc.data(), id: userDoc.id }));
         });
       } else {
-        dispatch(userVerification(null));
+        dispatch(userVerification(false));
       }
     });
   }, []);
 
   return (
-    <div className="xl:h-screen max-h-full">
+    <div className="xl:h-screen relative max-h-full">
       {user ? (
         <Layout>
           <Routes>
@@ -37,11 +38,15 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Layout>
-      ) : (
+      ) : user == false ? (
         <Routes>
           <Route path="/" element={<SigninAndSignup />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
+      ) : (
+        <div className="centerXY">
+          <ReactLoading type="bubbles" />
+        </div>
       )}
     </div>
   );

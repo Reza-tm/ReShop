@@ -43,7 +43,9 @@ const ProductsCard = ({ item }) => {
             x: [0, 2, -2, 0],
           }}
           disabled={isInCart ? true : false}
-          className={`text-white font-bold px-3 py-2 w-2/3 ${isInCart ? "bg-emerald-300/5" : "bg-emerald-300/30"} rounded-md`}
+          className={`text-white font-bold px-3 transition duration-500 py-2 w-2/3 ${
+            isInCart ? "bg-emerald-300/5" : "bg-emerald-300/30"
+          } rounded-md`}
           onClick={() => {
             if (!isInCart) {
               setIsInCart(true);

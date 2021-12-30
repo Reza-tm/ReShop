@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import CartItem from "../CartItem/CartItem";
@@ -17,9 +17,7 @@ const CartModal = ({ visibility }) => {
     >
       <div className="w-full h-5/6 py-3 flex flex-col items-center  overflow-y-auto">
         {cartItems.map((item) => (
-          <AnimatePresence key={item.id}>
-            <CartItem item={item} />
-          </AnimatePresence>
+          <CartItem key={item.id} item={item} />
         ))}
       </div>
       <div className="w-full h-1/6 flex justify-center items-center">
