@@ -23,7 +23,7 @@ const CheckoutItem = ({ item }) => {
         <BiPlus cursor="pointer" size={25} color="white" onClick={() => dispatch(increaseQuantity(item))} />
       </div>
       <div className="w-1/5 ml-7 border relative object-fill object-bottom overflow-hidden rounded-md h-full">
-        <img src={imgUrl} className="object-cover object-top w-full h-full" />
+        <img src={imgUrl} alt="cloth img" className="object-cover object-top w-full h-full" />
       </div>
     </div>
   );

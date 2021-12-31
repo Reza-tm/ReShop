@@ -8,7 +8,7 @@ const ProductsCard = ({ item }) => {
   const [isInCart, setIsInCart] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
   useEffect(() => {
-    const finded = cartItems.find((cartItem) => cartItem.id == item.id);
+    const finded = cartItems.find((cartItem) => cartItem.id === item.id);
     finded ? setIsInCart(true) : setIsInCart(false);
   }, [cartItems]);
   const { name, price, imgUrl } = item;
@@ -24,7 +24,7 @@ const ProductsCard = ({ item }) => {
     >
       <Tilt className="Tilt" options={{ max: 20 }} style={{ height: "50%", width: "100%" }}>
         <div className="w-full h-full rounded-lg border-2 overflow-hidden">
-          <img src={imgUrl} className="w-full h-full  object-cover" />
+          <img src={imgUrl} alt="cloth img" className="w-full h-full  object-cover" />
         </div>
       </Tilt>
       <div>

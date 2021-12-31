@@ -9,7 +9,7 @@ const CheckoutPage = () => {
     <div>
       <h1 className="font-semibold  uppercase text-3xl text-white my-1">Checkout 🛍</h1>
       <div className="h-[520px] relative  border-teal-900/20 border-4 rounded-lg p-5">
-        {cartItems.length == 0 ? (
+        {cartItems.length === 0 ? (
           <p className="centerXY  text-2xl uppercase text-white">There isnt any Item</p>
         ) : (
           <div className="flex overflow-hidden h-full">

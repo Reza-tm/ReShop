@@ -12,7 +12,7 @@ const SigninAndSignup = () => {
     <main className=" md:h-screen mx-auto flex md:flex-row flex-col justify-around items-center">
       <div className="w-1/2 flex justify-center">
         <div className="sm:w-64  mt-20 md:mt-0 md:w-96 lg:w-[500px]">
-          <img src={SigninImage} />
+          <img src={SigninImage} alt="signInImg" />
         </div>
       </div>
       <div className="w-1/2 flex justify-center">

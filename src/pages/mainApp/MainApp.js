@@ -1,7 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import Header from "../../components/Header/Header";
 import CategoryItem from "../../components/mainAppComponents/Categories/CategoryItem";
 import CategorySkeleton from "../../components/mainAppComponents/Categories/CategorySkeleton";
 import { getCategoriesData } from "../../services/Firebase/FirebaseCategories/FirebaseCategories";

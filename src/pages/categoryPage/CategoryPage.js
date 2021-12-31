@@ -43,7 +43,7 @@ const CategoryPage = () => {
             ))}
         </AnimatePresence>
         <AnimatePresence>
-          {products.length == 0 && (
+          {products.length === 0 && (
             <>
               <ProductsSkeleton />
               <ProductsSkeleton />

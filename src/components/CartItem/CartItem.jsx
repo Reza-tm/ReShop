@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
 import { BiPlus, BiMinus, BiX } from "react-icons/bi";
 import { useDispatch } from "react-redux";
 import { decrementQuantity, deleteItemFromCarts, increaseQuantity } from "../../services/Redux/cart/cartSlice";
@@ -31,7 +31,7 @@ const CartItem = ({ item }) => {
             <BiPlus cursor="pointer" color="black" onClick={() => dispatch(increaseQuantity(item))} />
           </div>
           <div className="w-1/5 border relative object-fill object-bottom overflow-hidden rounded-md h-full">
-            <img src={imgUrl} className="object-cover object-top w-full h-full" />
+            <img src={imgUrl} alt="cloth img" className="object-cover object-top w-full h-full" />
           </div>
         </motion.div>
       )}

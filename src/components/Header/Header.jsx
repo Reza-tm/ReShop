@@ -1,6 +1,6 @@
 import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../services/Firebase/Firebase";
 import { RiVipCrownLine } from "react-icons/ri";
 import CartModal from "../CartModal/CartModal";
@@ -9,7 +9,6 @@ import { motion } from "framer-motion";
 import { BiHomeSmile, BiShoppingBag } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import { VscSignOut } from "react-icons/vsc";
-import storage from "redux-persist/lib/storage";
 import { persistor } from "../../services/Redux/store";
 
 const Header = () => {

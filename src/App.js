@@ -40,7 +40,7 @@ function App() {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </Layout>
-      ) : user == false ? (
+      ) : user === false ? (
         <Routes>
           <Route path="/" element={<SigninAndSignup />} />
           <Route path="*" element={<Navigate to="/" />} />

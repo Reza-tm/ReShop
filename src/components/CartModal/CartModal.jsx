@@ -18,7 +18,7 @@ const CartModal = ({ visibility }) => {
       className=" left-24 z-50 fixed centerY rounded-r-lg overflow-hidden rounded-l-sm w-72 h-96 cursor-default bg-gray-200"
     >
       <div className="w-full h-5/6 py-3 flex flex-col items-center  overflow-y-auto">
-        {cartItems.length == 0 ? (
+        {cartItems.length === 0 ? (
           <p className="text-black font-semibold text-xl centerXY text-center capitalize">There isnt any item</p>
         ) : (
           cartItems.map((item) => <CartItem key={item.id} item={item} />)
