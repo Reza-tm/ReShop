@@ -1,8 +1,7 @@
 import { signOut } from "firebase/auth";
 import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { auth } from "../../services/Firebase/Firebase";
-import getData from "./Header.data.js";
 import { RiVipCrownLine } from "react-icons/ri";
 import CartModal from "../CartModal/CartModal";
 import CartBadge from "../CartBadge/CartBadge";
@@ -10,10 +9,11 @@ import { motion } from "framer-motion";
 import { BiHomeSmile, BiShoppingBag } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import { VscSignOut } from "react-icons/vsc";
+import storage from "redux-persist/lib/storage";
 import { persistor } from "../../services/Redux/store";
 
 const Header = () => {
-  const data = getData();
+  const navigated = useNavigate();
   const [cartModalVisibility, setCartModalVisibility] = useState(false);
 
   return (
@@ -45,7 +45,10 @@ const Header = () => {
         <motion.div
           whileHover={{ scale: 1.2 }}
           onClick={() => {
-            signOut(auth);
+            persistor.purge().then(() => {
+              signOut(auth);
+              navigated(0);
+            });
           }}
           className="cursor-pointer"
         >
