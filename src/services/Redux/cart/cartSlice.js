@@ -6,11 +6,10 @@ import { increaseItemQuantity } from "./cartUtils/increaseItemQuantity";
 export const cartSlice = createSlice({
   name: "cart",
   initialState: {
-    cartItems: JSON.parse(localStorage.getItem("cartItems")),
+    cartItems: [],
   },
   reducers: {
     addItem: (state, action) => {
-      localStorage.setItem("cartItems", JSON.stringify([...state.cartItems, action.payload]));
       state.cartItems = [...state.cartItems, action.payload];
     },
     increaseQuantity: (state, action) => {

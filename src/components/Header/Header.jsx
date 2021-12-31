@@ -10,6 +10,7 @@ import { motion } from "framer-motion";
 import { BiHomeSmile, BiShoppingBag } from "react-icons/bi";
 import { FiShoppingCart } from "react-icons/fi";
 import { VscSignOut } from "react-icons/vsc";
+import { persistor } from "../../services/Redux/store";
 
 const Header = () => {
   const data = getData();
@@ -41,7 +42,13 @@ const Header = () => {
           </motion.div>
           <CartModal visibility={[cartModalVisibility, setCartModalVisibility]} />
         </div>
-        <motion.div whileHover={{ scale: 1.2 }} onClick={() => signOut(auth)} className="cursor-pointer">
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          onClick={() => {
+            signOut(auth);
+          }}
+          className="cursor-pointer"
+        >
           <VscSignOut size="27px" color="rgb(255 255 255 / 0.5)" />
         </motion.div>
       </div>
