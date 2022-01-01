@@ -16,11 +16,11 @@ const Header = () => {
   const [cartModalVisibility, setCartModalVisibility] = useState(false);
 
   return (
-    <div className="bg-gray-50/5 items-center w-24 p-3 flex flex-col rounded-r-lg h-80 justify-between fixed centerY">
+    <div className="bg-gray-50/5 items-center lg:w-24 md:w-[60vw]  sm:w-[90vw] w-full mx-auto mb-6 lg:mb-0 lg:-translate-y-1/2 lg:top-1/2  p-3 flex lg:flex-col lg:rounded-r-lg rounded-b-lg lg:h-80 h-20  justify-between lg:fixed ">
       <motion.div whileHover={{ rotate: "10deg" }} className="relative">
         <RiVipCrownLine color="white" size="40px" />
       </motion.div>
-      <div className="flex flex-col items-center  justify-around h-full mt-2 text-gray-200">
+      <div className="flex lg:flex-col items-center w-full lg:w-auto px-5 justify-around h-full mt-2 text-gray-200">
         <motion.div whileHover={{ scale: 1.2 }}>
           <NavLink className={(nav) => (nav.isActive ? "text-white" : "text-white/50")} to="/">
             <BiHomeSmile size="27px" />
@@ -54,6 +54,9 @@ const Header = () => {
           <VscSignOut size="27px" color="rgb(255 255 255 / 0.5)" />
         </motion.div>
       </div>
+      <motion.div whileHover={{ rotate: "10deg" }} className="block lg:hidden relative">
+        <RiVipCrownLine color="white" size="40px" />
+      </motion.div>
     </div>
   );
 };

@@ -15,7 +15,7 @@ const CartModal = ({ visibility }) => {
       animate={{ opacity: cartModalVisibility ? 1 : 0 }}
       initial={{ opacity: 0 }}
       style={{ display: display ? "block" : "none", zIndex: "999 !important" }}
-      className=" left-24 z-50 fixed centerY rounded-r-lg overflow-hidden rounded-l-sm w-72 h-96 cursor-default bg-gray-200"
+      className=" lg:left-24 z-50 absolute lg:top-1/2 lg:-translate-y-1/2 top-20 left-1/2 lg:translate-x-0 -translate-x-1/2 lg:rounded-r-lg rounded-b-lg overflow-hidden rounded-l-sm lg:w-72 lg:h-96 h-72   md:w-[60vw] sm:w-[90vw] w-full  cursor-default bg-gray-200"
     >
       <div className="w-full h-5/6 py-3 flex flex-col items-center  overflow-y-auto">
         {cartItems.length === 0 ? (
@@ -24,7 +24,7 @@ const CartModal = ({ visibility }) => {
           cartItems.map((item) => <CartItem key={item.id} item={item} />)
         )}
       </div>
-      <div className="w-full h-1/6 flex justify-center items-center">
+      <div className="w-full h-1/6 py-5 flex justify-center items-center">
         <Link to="/checkout" onClick={() => setCartModalVisibility(false)}>
           <motion.button whileTap={{ scale: 1.04 }} className="px-4 py-2 bg-teal-900 rounded-md font-semibold">
             Go to Checkout
