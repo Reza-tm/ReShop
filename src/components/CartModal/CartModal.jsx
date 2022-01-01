@@ -1,13 +1,15 @@
 import { motion } from "framer-motion";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { closeModal } from "../../services/Redux/cart/cartSlice";
 import CartItem from "../CartItem/CartItem";
 
-const CartModal = ({ visibility }) => {
-  const [cartModalVisibility, setCartModalVisibility] = visibility;
+const CartModal = () => {
   const [display, setDisplay] = useState(false);
   const cartItems = useSelector((state) => state.cart.cartItems);
+  const cartModalVisibility = useSelector((state) => state.cart.cartModal);
+  const dispatch = useDispatch();
   return (
     <motion.div
       onAnimationComplete={() => (cartModalVisibility ? "" : setDisplay(false))}
@@ -19,13 +21,13 @@ const CartModal = ({ visibility }) => {
     >
       <div className="w-full h-5/6 py-3 flex flex-col items-center  overflow-y-auto">
         {cartItems.length === 0 ? (
-          <p className="text-black font-semibold text-xl centerXY text-center capitalize">There isnt any item</p>
+          <p className="text-black font-semibold text-xl centerXY absolute text-center capitalize">There isnt any item</p>
         ) : (
           cartItems.map((item) => <CartItem key={item.id} item={item} />)
         )}
       </div>
       <div className="w-full h-1/6 py-5 flex justify-center items-center">
-        <Link to="/checkout" onClick={() => setCartModalVisibility(false)}>
+        <Link to="/checkout" onClick={() => dispatch(closeModal())}>
           <motion.button whileTap={{ scale: 1.04 }} className="px-4 py-2 bg-teal-900 rounded-md font-semibold">
             Go to Checkout
           </motion.button>
